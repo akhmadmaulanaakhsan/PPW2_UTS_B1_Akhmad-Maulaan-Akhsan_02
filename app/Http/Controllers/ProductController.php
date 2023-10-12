@@ -70,8 +70,9 @@ class Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product) : RedirectResponse
+    public function destroy($id) : RedirectResponse
     {
+        $product->Product::find($id);
         $product->delete();
         return redirect()->route('index')
                 ->withSuccess('Product is deleted successfully.');
